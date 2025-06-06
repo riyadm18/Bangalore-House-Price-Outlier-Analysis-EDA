@@ -1,9 +1,9 @@
-# 🏡 Bangalore House Price Outlier Analysis & EDA
+# Bangalore House Price Outlier Analysis & EDA
 
-## 📌 Project Title
+## Project Title
 **Bangalore House Price Outlier Detection, Cleaning & Exploratory Data Analysis**
 
-## 🎯 Objective
+## Objective
 
 This project aims to:
 - Perform **Exploratory Data Analysis (EDA)** on Bangalore housing data.
@@ -12,14 +12,14 @@ This project aims to:
 - Apply data transformation to address **skewness and kurtosis**.
 - Explore relationships between variables using **correlation heatmaps**.
 
-## 📂 Dataset
+## Dataset
 
 - **Original Dataset**: `house_price.csv`
 - **Cleaned Dataset**: `house_price_cleaned.csv`
 
 Each row represents a residential property listing in Bangalore.
 
-### 📋 Features:
+### Features:
 - `location`: Area or region in Bangalore
 - `size`: Property size label (e.g., "2 BHK", "4 Bedroom")
 - `total_sqft`: Total built-up area in square feet
@@ -28,7 +28,7 @@ Each row represents a residential property listing in Bangalore.
 - `bhk`: Number of bedrooms (extracted from `size`)
 - `price_per_sqft`: Derived column = `(price / total_sqft) × 100000`
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - Python
 - Pandas
@@ -38,30 +38,30 @@ Each row represents a residential property listing in Bangalore.
 - SciPy
 - Jupyter Notebook
 
-## ✅ Project Steps
+## Project Steps
 
-### 1️⃣ Data Loading & EDA
+### 1. Data Loading & EDA
 - Loaded data from `house_price.csv`
 - Explored the shape, info, null values, and distributions
 - Derived `bhk` and `price_per_sqft` from raw columns
 
-### 2️⃣ Outlier Detection Methods
+### 2. Outlier Detection Methods
 Applied on `price_per_sqft`:
 - **Mean ± 3*Standard Deviation**
 - **Percentile Method** (trim below 5th and above 95th percentile)
 - **IQR Method** (Q1 - 1.5×IQR to Q3 + 1.5×IQR)
 - **Z-Score Method** (values where z > 3)
 
-### 3️⃣ Outlier Removal Techniques
+### 3. Outlier Removal Techniques
 - Used **trimming** and **capping** methods
 - Removed/limited extreme `price_per_sqft` values to reduce noise
 
-### 4️⃣ Visualizations
+### 4. Visualizations
 - Used **boxplots** to compare data before and after each outlier removal technique
 - Used **histograms** and **distplots** to check for normality
 - Applied **log and Box-Cox transformation** to handle skewness
 
-### 5️⃣ Correlation Analysis
+### 5. Correlation Analysis
 - Generated a **heatmap** of numeric features
 - Created **scatter plots** of:
   - `size` vs `price_per_sqft`
@@ -69,14 +69,14 @@ Applied on `price_per_sqft`:
   - `bath` vs `price_per_sqft`
   - `bhk` vs `price_per_sqft`
 
-## 📉 Key Observations
+## Key Observations
 
 - Significant outliers in the dataset from high-end listings
 - The **IQR method** was most effective for balanced outlier removal
 - The dataset was positively skewed and benefited from transformation
 - Variables like `bhk`, `bath`, and `total_sqft` show a positive correlation with `price_per_sqft`
 
-## 📊 Output
+## Output
 
 - Cleaned and transformed dataset: `house_price_cleaned.csv`
 - Visual evidence (boxplots, histograms, scatter plots) of data cleaning
