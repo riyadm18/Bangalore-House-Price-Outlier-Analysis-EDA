@@ -3,8 +3,6 @@
 ## 📌 Project Title
 **Bangalore House Price Outlier Detection, Cleaning & Exploratory Data Analysis**
 
----
-
 ## 🎯 Objective
 
 This project aims to:
@@ -13,8 +11,6 @@ This project aims to:
 - Visualize data distributions using **boxplots**, **histograms**, and **scatter plots**.
 - Apply data transformation to address **skewness and kurtosis**.
 - Explore relationships between variables using **correlation heatmaps**.
-
----
 
 ## 📂 Dataset
 
@@ -32,8 +28,6 @@ Each row represents a residential property listing in Bangalore.
 - `bhk`: Number of bedrooms (extracted from `size`)
 - `price_per_sqft`: Derived column = `(price / total_sqft) × 100000`
 
----
-
 ## 🛠️ Technologies Used
 
 - Python
@@ -43,8 +37,6 @@ Each row represents a residential property listing in Bangalore.
 - Seaborn
 - SciPy
 - Jupyter Notebook
-
----
 
 ## ✅ Project Steps
 
@@ -77,8 +69,6 @@ Applied on `price_per_sqft`:
   - `bath` vs `price_per_sqft`
   - `bhk` vs `price_per_sqft`
 
----
-
 ## 📉 Key Observations
 
 - Significant outliers in the dataset from high-end listings
@@ -86,12 +76,8 @@ Applied on `price_per_sqft`:
 - The dataset was positively skewed and benefited from transformation
 - Variables like `bhk`, `bath`, and `total_sqft` show a positive correlation with `price_per_sqft`
 
----
-
 ## 📊 Output
 
 - Cleaned and transformed dataset: `house_price_cleaned.csv`
 - Visual evidence (boxplots, histograms, scatter plots) of data cleaning
 - Ready for ML models with reduced noise and outliers
-
----
