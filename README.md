@@ -1,123 +1,97 @@
-# Bangalore-House-Price-Outlier-Analysis-EDA
-📌 Project Title
-Bangalore House Price Outlier Analysis and Exploratory Data Analysis (EDA)
+# 🏡 Bangalore House Price Outlier Analysis & EDA
 
-🎯 Objective
-The objective of this project is to perform:
+## 📌 Project Title
+**Bangalore House Price Outlier Detection, Cleaning & Exploratory Data Analysis**
 
-Basic EDA (Exploratory Data Analysis)
+---
 
-Detect and handle outliers in the price_per_sqft column using multiple statistical methods
+## 🎯 Objective
 
-Visualize the effect of outlier handling using boxplots and histograms
+This project aims to:
+- Perform **Exploratory Data Analysis (EDA)** on Bangalore housing data.
+- Detect and handle **outliers** in the `price_per_sqft` column using statistical techniques.
+- Visualize data distributions using **boxplots**, **histograms**, and **scatter plots**.
+- Apply data transformation to address **skewness and kurtosis**.
+- Explore relationships between variables using **correlation heatmaps**.
 
-Analyze skewness and kurtosis before and after data transformations
+---
 
-Examine relationships between variables using scatter plots and correlation heatmaps
+## 📂 Dataset
 
-📁 Dataset
-The dataset contains property listings from Bangalore with fields like:
+- **Original Dataset**: `house_price.csv`
+- **Cleaned Dataset**: `house_price_cleaned.csv`
 
-location
+Each row represents a residential property listing in Bangalore.
 
-size (e.g., "2 BHK", "4 Bedroom")
+### 📋 Features:
+- `location`: Area or region in Bangalore
+- `size`: Property size label (e.g., "2 BHK", "4 Bedroom")
+- `total_sqft`: Total built-up area in square feet
+- `bath`: Number of bathrooms
+- `price`: Price of the property (in Lakhs)
+- `bhk`: Number of bedrooms (extracted from `size`)
+- `price_per_sqft`: Derived column = `(price / total_sqft) × 100000`
 
-total_sqft
+---
 
-bath
+## 🛠️ Technologies Used
 
-price
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- SciPy
+- Jupyter Notebook
 
-bhk (number of bedrooms)
+---
 
-price_per_sqft (calculated as price / total_sqft × 100000)
+## ✅ Project Steps
 
-📎 Note: Sample dataset provided for understanding, use actual .csv file in implementation.
+### 1️⃣ Data Loading & EDA
+- Loaded data from `house_price.csv`
+- Explored the shape, info, null values, and distributions
+- Derived `bhk` and `price_per_sqft` from raw columns
 
-🛠️ Tools Used
-Python
+### 2️⃣ Outlier Detection Methods
+Applied on `price_per_sqft`:
+- **Mean ± 3*Standard Deviation**
+- **Percentile Method** (trim below 5th and above 95th percentile)
+- **IQR Method** (Q1 - 1.5×IQR to Q3 + 1.5×IQR)
+- **Z-Score Method** (values where z > 3)
 
-Pandas
+### 3️⃣ Outlier Removal Techniques
+- Used **trimming** and **capping** methods
+- Removed/limited extreme `price_per_sqft` values to reduce noise
 
-NumPy
+### 4️⃣ Visualizations
+- Used **boxplots** to compare data before and after each outlier removal technique
+- Used **histograms** and **distplots** to check for normality
+- Applied **log and Box-Cox transformation** to handle skewness
 
-Matplotlib
+### 5️⃣ Correlation Analysis
+- Generated a **heatmap** of numeric features
+- Created **scatter plots** of:
+  - `size` vs `price_per_sqft`
+  - `total_sqft` vs `price_per_sqft`
+  - `bath` vs `price_per_sqft`
+  - `bhk` vs `price_per_sqft`
 
-Seaborn
+---
 
-SciPy
+## 📉 Key Observations
 
-✅ Project Steps
-1️⃣ Basic EDA
-Loaded the dataset
+- Significant outliers in the dataset from high-end listings
+- The **IQR method** was most effective for balanced outlier removal
+- The dataset was positively skewed and benefited from transformation
+- Variables like `bhk`, `bath`, and `total_sqft` show a positive correlation with `price_per_sqft`
 
-Displayed basic info and summary statistics
+---
 
-Checked for null values
+## 📊 Output
 
-Derived new columns (e.g., price_per_sqft)
+- Cleaned and transformed dataset: `house_price_cleaned.csv`
+- Visual evidence (boxplots, histograms, scatter plots) of data cleaning
+- Ready for ML models with reduced noise and outliers
 
-Cleaned size to extract numerical BHK values
-
-2️⃣ Outlier Detection & Removal
-Outliers in price_per_sqft were handled using the following methods:
-
-a) Mean & Standard Deviation
-Outliers = values beyond mean ± 2*std
-
-b) Percentile Method
-Trimmed data below 5th percentile and above 95th percentile
-
-c) IQR Method
-Removed values outside Q1 - 1.5*IQR and Q3 + 1.5*IQR
-
-d) Z-Score Method
-Used zscore() from scipy.stats
-
-Dropped rows where Z > 3 or Z < -3
-
-✅ Each method was followed by a box plot to visualize effectiveness.
-
-3️⃣ Visualizations
-📦 Box Plots
-To visually assess the effectiveness of outlier handling for each method
-
-📊 Histogram & Distribution Plots
-Used sns.histplot() before and after transformation
-
-Applied log transformation if data was highly skewed
-
-Compared skewness and kurtosis before and after transformation
-
-4️⃣ Correlation Analysis
-🔥 Heatmap
-Created heatmap using sns.heatmap() to show correlation between numerical features
-
-🔍 Scatter Plots
-Compared price_per_sqft with:
-
-size
-
-total_sqft
-
-bhk
-
-bath
-
-📉 Key Observations
-Raw data had extreme outliers in price_per_sqft, especially from luxury listings
-
-IQR method was most balanced for outlier removal based on visual inspection
-
-Data was positively skewed; log transformation helped normalize the distribution
-
-Strong correlation observed between total_sqft and price, but not perfect linearity due to price per area variation
-
-Heatmaps and scatter plots helped highlight meaningful relationships between variables
-
-📦 Final Output
-A cleaned dataset with significantly fewer outliers
-
-Better distribution of price_per_sqft for downstream tasks like ML modeling
-
-Visualizations for comparison between raw and processed data
+---
